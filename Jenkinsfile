@@ -6,14 +6,14 @@ node{
     sh 'mvn package'
     }
   stage('docker buid'){
-   sh 'docker build -t nippy/myapp.$BUILD_NUMBER .'
+   sh 'docker build -t kairaazure/myapp.$BUILD_NUMBER .'
   }
   stage('push'){
-   sh 'docker login -u nippy -p Redhat@123456'
-   sh 'docker push nippy/myapp.$BUILD_NUMBER'
+   sh 'docker login -u kairaazure -p Rpa@2019@2019'
+   sh 'docker push kairaazure/myapp.$BUILD_NUMBER'
   }
   stage('Deploy an Application'){
-   sh 'kubectl run myapp --image=nippy/myapp.$BUILD_NUMBER --restart=Never'
+   sh 'kubectl run myapp --image=kairaazure/myapp.$BUILD_NUMBER --restart=Never'
   }
   stage('Create Service to access '){
    sh 'kubectl expose pod myapp --port=8080 --type=LoadBalancer  --name=myapp'
