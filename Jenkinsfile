@@ -2,10 +2,6 @@ node{
   stage('SCM Checkout') {
     git 'https://github.com/monbostest/java-code1.git'
     }
- def mvn_version = 'M3'
- withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-  //sh "mvn clean package"
-}
   stage('compile code') {
     sh 'mvn package'
     }
