@@ -13,6 +13,6 @@ node{
    sh 'docker push kairaazure/myapp:$BUILD_NUMBER'
   }
   stage('Deploy an Application to docker'){
-   sh 'docker run -d -p 80:80 kairaazure/myapp:$BUILD_NUMBER '
+   sh 'docker run -d -P kairaazure/myapp:$BUILD_NUMBER '
   } 
 }
